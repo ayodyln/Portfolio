@@ -34,6 +34,40 @@ p {
   max-width: 600px;
 }
 
+/* For WebKit browsers (Chrome, Safari) */
+/* Hide scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Transparent background */
+}
+
+/* Style the scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+/* Style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Border radius of the scrollbar thumb */
+}
+
+/* For Firefox */
+/* Hide scrollbar track */
+::-moz-scrollbar {
+  background-color: transparent; /* Transparent background */
+}
+
+/* Style the scrollbar */
+::-moz-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+/* Style the scrollbar thumb */
+::-moz-scrollbar-thumb {
+  background-color: #a0a0a0; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Border radius of the scrollbar thumb */
+}
+
 /* Set default font styles */
 body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -41,8 +75,10 @@ body {
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   height: 100vh;
+  width: 100vw;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+  /* scroll-snap-type: y mandatory; */
   background: rgb(70, 55, 245);
   background: linear-gradient(
     90deg,
@@ -63,6 +99,8 @@ body {
 }
 
 main {
+  padding: 1rem;
+  height: 100%;
 }
 
 /* Remove list styles */
@@ -120,15 +158,13 @@ td {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
-/* !!! */
 /* Hero Section */
 section#hero__wrapper {
   display: grid;
   place-items: center;
-  height: 100vh;
+  height: 100%;
 }
 
 section#hero__wrapper > div {
@@ -151,13 +187,43 @@ section#hero__wrapper > div span {
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
+/* End of Hero Section */
 
-section#hero__wrapper > div span:nth-child(1) {
-  /* opacity: 1; */
+/* Bio Section */
+section#bio {
+  display: none;
+
+  /* Styles For when display: flex */
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
-section[data-element="bio"] {
-  display: none;
+section#about {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+section#about div:nth-child(1) {
+  display: flex;
+  gap: 1rem;
+}
+section#about div:nth-child(1) figure {
+  overflow: hidden;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+section#about div:nth-child(1) figure > img {
+}
+
+section#about div:nth-child(1) article {
+}
+
+section#about div:nth-child(1) article > h2 {
+}
+section#about div:nth-child(1) article > p {
 }
 
 /* Animations */
@@ -184,6 +250,11 @@ section[data-element="bio"] {
 }
 
 /* !!! */
+/* !!! */
+/* !!! */
+/* !!! */
+/* !!! */
+/* !!! */
 
 /* Hero Section */
 section#Hero__Wrapper > div.sticky-element {
@@ -199,34 +270,6 @@ section#Hero__Wrapper > div.sticky-element {
 section#Hero__Wrapper > div.sticky-element h1 {
   font-size: 3rem;
   font-weight: 800;
-}
-
-div#sticky4 {
-  /* color: black !important; */
-}
-
-div#sticky4 section > div:nth-child(1) {
-  display: flex;
-  gap: 2rem;
-}
-
-div#sticky4 section > div:nth-child(1) > article h2 {
-  font-size: 2.5rem;
-  font-weight: medium;
-}
-
-div#sticky4 section > div:nth-child(1) figure {
-  background-color: grey;
-  border-radius: 50%;
-  width: 200px;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-}
-
-div#sticky4 section > div:nth-child(1) figure img {
-  width: 100%;
-  height: auto;
 }
 
 /* Animations & Keyframes */
