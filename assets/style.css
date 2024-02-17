@@ -1,0 +1,261 @@
+/* Reset box-sizing to border-box */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
+}
+
+/* Remove default margin and padding */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  max-width: 600px;
+}
+
+/* Set default font styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  background: rgb(70, 55, 245);
+  background: linear-gradient(
+    90deg,
+    rgb(255, 255, 255) -20%,
+    rgb(70, 55, 245) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    rgb(255, 255, 255) -20%,
+    rgb(70, 55, 245) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgb(255, 255, 255) -40%,
+    rgb(70, 55, 245) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#4637F5", endColorstr="#FFFFFF", GradientType=1);
+}
+
+main {
+}
+
+/* Remove list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove hyperlink styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove default button styles */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Remove default form field styles */
+input,
+textarea,
+select {
+  appearance: none;
+  border-radius: 0;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Remove default table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 0.5em;
+  border: 1px solid #ccc;
+}
+
+/* ! End of Resets ! */
+
+/* Global Utils */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* !!! */
+/* Hero Section */
+section#hero__wrapper {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+section#hero__wrapper > div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section#hero__wrapper > div span {
+  opacity: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(50%);
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+section#hero__wrapper > div span:nth-child(1) {
+  /* opacity: 1; */
+}
+
+section[data-element="bio"] {
+  display: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+}
+
+/* !!! */
+
+/* Hero Section */
+section#Hero__Wrapper > div.sticky-element {
+  height: 100vh;
+  color: white;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: 2s;
+  scroll-snap-align: start;
+}
+
+section#Hero__Wrapper > div.sticky-element h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+div#sticky4 {
+  /* color: black !important; */
+}
+
+div#sticky4 section > div:nth-child(1) {
+  display: flex;
+  gap: 2rem;
+}
+
+div#sticky4 section > div:nth-child(1) > article h2 {
+  font-size: 2.5rem;
+  font-weight: medium;
+}
+
+div#sticky4 section > div:nth-child(1) figure {
+  background-color: grey;
+  border-radius: 50%;
+  width: 200px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+div#sticky4 section > div:nth-child(1) figure img {
+  width: 100%;
+  height: auto;
+}
+
+/* Animations & Keyframes */
+.fade-in {
+  opacity: 1 !important;
+}
+
+/* --------------------------------- */
+/* Responsive Design */
+@media (min-width: 320px) {
+  /* smartphones, iPhone, portrait 480x320 phones */
+}
+
+@media (min-width: 481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+
+@media (min-width: 641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+
+@media (min-width: 961px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
+}
