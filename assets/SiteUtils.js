@@ -16,20 +16,18 @@ class SiteUtils {
     const pageLoadBio = this.pageLoadBio.bind();
 
     async function transitionWords() {
-      // Fade out current word
       spans[heroWordIndex].style.animationName = "fadeOut";
-      // Increment index or stop if last word
-      if (heroWordIndex === spans.length - 1) {
-        clearInterval(intervalID);
-        parent.remove();
-        pageLoadBio();
-        return;
-      }
-      // Fade in next word after a delay
+
       setTimeout(() => {
+        if (heroWordIndex === spans.length - 1) {
+          clearInterval(intervalID);
+          pageLoadBio();
+          parent.remove();
+          return;
+        }
         heroWordIndex++;
         spans[heroWordIndex].style.animationName = "fadeIn";
-      }, 1000); // Delay between words (1 second in this case)
+      }, 1000);
     }
 
     // Set initial word content
