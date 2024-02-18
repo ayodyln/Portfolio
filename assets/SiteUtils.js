@@ -15,9 +15,8 @@ class SiteUtils {
 
     const pageLoadBio = this.pageLoadBio.bind();
 
-    async function transitionWords() {
+    function transitionWords() {
       spans[heroWordIndex].style.animationName = "fadeOut";
-
       setTimeout(() => {
         if (heroWordIndex === spans.length - 1) {
           clearInterval(intervalID);
@@ -38,9 +37,8 @@ class SiteUtils {
   }
 
   pageLoadBio() {
-    console.log("Page load bio");
     const bio = document.querySelector('[data-element="bio"]');
-    bio.style.display = "flex";
+    bio.style.display = "initial";
     bio.style.animationName = "bioFadeIn";
   }
 }
