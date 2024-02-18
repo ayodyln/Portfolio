@@ -41,7 +41,9 @@ class SiteUtils {
 
   pageLoadBio() {
     console.log("Page load bio");
-    document.querySelector('[data-element="bio"]').style.display = "flex";
+    const bio = document.querySelector('[data-element="bio"]');
+    bio.style.display = "flex";
+    bio.style.animationName = "bioFadeIn";
   }
 }
 
