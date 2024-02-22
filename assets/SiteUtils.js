@@ -2,14 +2,14 @@
  * @class SiteUtils - A class for site utilities
  */
 class SiteUtils {
-  constructor(selector) {
+  constructor(selector, options) {
     this.element = document.querySelector(selector);
+    this.options = options;
   }
 
   pageLoadAnimation() {
     const parent = document.querySelector('[data-element="hero"]');
     const spans = document.querySelectorAll('[data-element="hero"] > div span');
-
     let heroWordIndex = 0;
     let intervalID;
 
@@ -22,6 +22,7 @@ class SiteUtils {
           clearInterval(intervalID);
           pageLoadBio();
           parent.remove();
+          document.querySelector("main").style.height = "auto";
           return;
         }
         heroWordIndex++;

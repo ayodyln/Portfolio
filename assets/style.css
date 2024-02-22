@@ -3,6 +3,7 @@
 :root {
   --primary-color: rgb(70, 55, 245);
   --primary-color-50_100: rgb(70, 55, 245, 0.5);
+  --scrollbar-thumb: rgb(105, 95, 220);
 }
 
 /* Reset box-sizing to border-box */
@@ -13,7 +14,7 @@
 }
 
 html {
-  overflow: hidden;
+  height: 100%;
 }
 
 /* Remove default margin and padding */
@@ -44,35 +45,42 @@ p {
 /* For WebKit browsers (Chrome, Safari) */
 /* Hide scrollbar track */
 ::-webkit-scrollbar-track {
-  background-color: transparent; /* Transparent background */
+  background-color: transparent;
+  /* Transparent background */
 }
 
 /* Style the scrollbar */
 ::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 8px;
+  /* Width of the scrollbar */
 }
 
 /* Style the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color); /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Border radius of the scrollbar thumb */
+  background-color: var(--scrollbar-thumb);
+  /* Color of the scrollbar thumb */
+  border-radius: 10px;
 }
 
 /* For Firefox */
 /* Hide scrollbar track */
 ::-moz-scrollbar {
-  background-color: transparent; /* Transparent background */
+  background-color: transparent;
+  /* Transparent background */
 }
 
 /* Style the scrollbar */
 ::-moz-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 8px;
+  /* Width of the scrollbar */
 }
 
 /* Style the scrollbar thumb */
 ::-moz-scrollbar-thumb {
-  background-color: #a0a0a0; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Border radius of the scrollbar thumb */
+  background-color: #a0a0a0;
+  /* Color of the scrollbar thumb */
+  border-radius: 10px;
+  /* Border radius of the scrollbar thumb */
 }
 
 /* Set default font styles */
@@ -81,11 +89,19 @@ body {
   font-size: 16px;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
-  height: 100vh;
-  width: 100vw;
   overflow-y: auto;
-  overflow-x: hidden;
-  /* scroll-snap-type: y mandatory; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* overflow-x: hidden; */
+  scroll-snap-type: y mandatory;
+}
+
+main {
+  padding: 1rem;
+  height: 100%; /* remove when page state updates - fuck css... */
+  display: flex;
+  flex-direction: column;
   background: var(--primary-color);
   background: linear-gradient(90deg, white -20%, var(--primary-color) 100%);
   background: -moz-linear-gradient(
@@ -95,15 +111,10 @@ body {
   );
   background: -webkit-linear-gradient(
     90deg,
-    white -40%,
+    white -20%,
     var(--primary-color) 100%
   );
   filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#4637F5", endColorstr="#FFFFFF", GradientType=1);
-}
-
-main {
-  padding: 1rem;
-  height: 100%;
 }
 
 /* Remove list styles */
@@ -165,8 +176,9 @@ td {
 
 /* Hero Section */
 section#hero__wrapper {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
 }
 
@@ -189,6 +201,7 @@ section#hero__wrapper > div span {
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
+
 /* End of Hero Section */
 
 /* Bio Section */
@@ -204,7 +217,7 @@ section#bio {
 section#about {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   color: white;
   height: min-content;
   height: 100vh;
@@ -213,33 +226,16 @@ section#about {
 section#about div:nth-child(1) {
   width: 100%;
   /* gap: 1rem; */
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-}
-section#about div:nth-child(1) figure {
-  overflow: hidden;
-  border-radius: 50%;
-  display: flex;
-  position: relative;
-  width: 100px;
-  height: 100px;
-  grid-column-start: 1;
-  grid-column-end: 2;
-}
-section#about div:nth-child(1) figure > img {
-  width: 100%;
-  height: auto;
 }
 
-section#about div:nth-child(1) figure > div.border {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 2px solid #000;
-  border-radius: 50%;
-  opacity: 0.8;
-  filter: blur(2px);
+section#about div:nth-child(1) h2 {
+  font-size: 2.5rem;
+}
+
+section#about div:nth-child(1) p {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  letter-spacing: 2px;
 }
 
 section#about div:nth-child(1) > div:nth-of-type(1) {
@@ -249,31 +245,37 @@ section#about div:nth-child(1) > div:nth-of-type(1) {
   width: 100%;
   margin-left: 1rem;
 }
+
 section#about div:nth-child(1) > div:nth-of-type(1) h2 {
   letter-spacing: 2px;
   font-size: 2rem;
   font-weight: bold;
 }
+
 section#about div:nth-child(1) > div:nth-of-type(1) p {
   font-size: 1.3rem;
   font-weight: lighter;
   letter-spacing: 1px;
 }
 
+div#testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 article.testimonial {
   font-size: 1.1rem;
-  border: 2px solid var(--primary-color);
-  border-radius: 10px;
-  background-color: var(--primary-color-50_100);
   color: black;
-  backdrop-filter: blur(2rem);
-  -webkit-backdrop-filter: blur(2rem);
-  padding: 1rem;
   color: white;
+  display: flex;
+  flex-direction: column;
 }
+
 article.testimonial > p:nth-child(1) {
   margin-bottom: 12px;
   font-style: italic;
+  min-width: 0;
 }
 
 article.testimonial > p:nth-child(2) {
@@ -291,10 +293,14 @@ section#experience {
 
 a[href="#experience"] {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
   font-size: 1.2rem;
   text-decoration: underline;
   text-underline-offset: 4px;
+  margin-top: 2rem;
 }
 
 a[href="#experience"]:hover {
@@ -302,10 +308,12 @@ a[href="#experience"]:hover {
 }
 
 .icon {
-  width: 12px;
+  max-width: 4rem;
   height: auto;
   display: flex;
-  fill: white;
+  fill: url(#gradient-horizontal) gray;
+  /* We could use it as a stroke fill too:
+  stroke: url(#gradient-horizontal) gray; */
 }
 
 /* Animations & Keyframes */
@@ -317,6 +325,7 @@ a[href="#experience"]:hover {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -327,6 +336,7 @@ a[href="#experience"]:hover {
     opacity: 0;
     transform: translateY(50%);
   }
+
   to {
     opacity: 1;
     transform: translateY(0%);
@@ -338,6 +348,7 @@ a[href="#experience"]:hover {
     opacity: 1;
     transform: translateY(0%);
   }
+
   to {
     opacity: 0;
     transform: translateY(-50%);

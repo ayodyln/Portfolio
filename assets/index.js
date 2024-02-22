@@ -1,10 +1,11 @@
 import { SiteUtils } from "./SiteUtils.js";
 
-const options = {}
+const options = {};
 
-const site = new SiteUtils("body");
+const site = new SiteUtils("body", options);
 
 // App initialization
 window.onload = () => {
   site.pageLoadAnimation();
 };
+
