@@ -22,7 +22,8 @@ class SiteUtils {
           clearInterval(intervalID);
           pageLoadBio();
           parent.remove();
-          document.querySelector("main").style.height = "auto";
+          const main = document.querySelector("main");
+          main.classList.remove("h-full");
           return;
         }
         heroWordIndex++;
