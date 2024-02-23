@@ -16,6 +16,8 @@
 html {
   height: 100%;
   scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
 }
 
 /* Remove default margin and padding */
@@ -292,11 +294,9 @@ a[href="#experience"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
   width: 100%;
   font-size: 1.2rem;
-  text-decoration: underline;
-  text-underline-offset: 4px;
   margin-top: 2rem;
 }
 
@@ -312,6 +312,23 @@ a[href="#experience"]:hover {
   fill: white;
   /* We could use it as a stroke fill too:
   stroke: url(#gradient-horizontal) gray; */
+  animation: bounce2 2s ease infinite;
+}
+
+@keyframes bounce2 {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 /* Animations & Keyframes */
