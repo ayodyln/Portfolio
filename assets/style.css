@@ -17,7 +17,6 @@ html {
   height: 100%;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-
 }
 
 /* Remove default margin and padding */
@@ -202,8 +201,6 @@ section#hero__wrapper > div span {
 /* Bio Section */
 section#bio {
   display: none;
-  /* Styles For when display: flex */
-  /* height: 100vh; */
   opacity: 0;
   animation-duration: 1s;
   animation-fill-mode: forwards;
@@ -212,9 +209,17 @@ section#bio {
 section#bio section {
   scroll-snap-align: start;
 }
+section#bio > div {
+  height: 100vh;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 section#about {
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 3rem;
   color: white;
@@ -224,6 +229,10 @@ section#about {
 
 section#about div:nth-child(1) {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   /* gap: 1rem; */
 }
 
@@ -281,8 +290,39 @@ article.testimonial > p:nth-child(2) {
   text-align: right;
 }
 
-section#experience {
-  height: 100vh;
+section#experience_wrapper {
+  max-width: 25rem;
+  margin: 0 auto;
+}
+
+section#experience_wrapper > hgroup {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+a.experience {
+  display: flex;
+  flex-direction: column;
+}
+
+a.experience > h2 {
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+a.experience > p {
+  margin-bottom: 12px;
+}
+a.experience > span {
+  place-self: end;
+  color: var(--primary-color);
+}
+
+section#buttons {
+  max-width: 40rem;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .experience__anchor {
@@ -290,7 +330,7 @@ section#experience {
   justify-content: center;
 }
 
-a[href="#experience"] {
+a[href="#experience_wrapper"] {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -298,10 +338,13 @@ a[href="#experience"] {
   width: 100%;
   font-size: 1.2rem;
   margin-top: 2rem;
+  fill: white;
+  transition: color 0.3s ease;
 }
 
-a[href="#experience"]:hover {
+a[href="#experience_wrapper"]:hover {
   cursor: pointer;
+  color: rgb(238, 236, 236);
 }
 
 .icon {
@@ -309,10 +352,27 @@ a[href="#experience"]:hover {
   height: 2rem;
   width: 10rem;
   display: flex;
-  fill: white;
+  fill: inherit;
   /* We could use it as a stroke fill too:
   stroke: url(#gradient-horizontal) gray; */
   animation: bounce2 2s ease infinite;
+}
+
+section#buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+section#buttons > button {
+  flex-basis: 100%;
+  border: solid 1px rgb(173, 171, 171);
+  padding: 1.5rem 19px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+section#buttons > button > i {
+    margin-right: 12px;
 }
 
 @keyframes bounce2 {
